@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useApp } from '../../context/AppContext';
 import {
   GraduationCap,
@@ -8,9 +8,11 @@ import {
   Sparkles,
   KeyRound,
   CheckCircle2,
-  AlertCircle
+  AlertCircle,
+  Smartphone
 } from 'lucide-react';
 import { triggerSuccessConfetti } from '../../utils/confetti';
+import { InstallPromptModal } from '../common/InstallPromptModal';
 
 interface AuthScreenProps {
   onSuccess: () => void;
@@ -22,6 +24,29 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onSuccess }) => {
   const [studentCode, setStudentCode] = useState('');
   const [coachPin, setCoachPin] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
+
+  // PWA Install state
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+  const [installModalOpen, setInstallModalOpen] = useState(false);
+
+  useEffect(() => {
+    const handleBeforeInstall = (e: any) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    };
+    window.addEventListener('beforeinstallprompt', handleBeforeInstall);
+    return () => window.removeEventListener('beforeinstallprompt', handleBeforeInstall);
+  }, []);
+
+  const handleInstallAndroid = () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(() => {
+        setDeferredPrompt(null);
+        setInstallModalOpen(false);
+      });
+    }
+  };
 
   const handleStudentSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,7 +81,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onSuccess }) => {
       triggerSuccessConfetti();
       onSuccess();
     } else {
-      setErrorMsg('Hatalı Koç Şifresi! (Varsayılan şifre: 1234)');
+      setErrorMsg('Hatalı Koç Şifresi!');
     }
   };
 
@@ -127,7 +152,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onSuccess }) => {
           <form onSubmit={handleStudentSubmit} className="space-y-4">
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                Öğrenci Kodunuz veya Adınız
+                Öğrenci Kodunuz
               </label>
               <div className="relative">
                 <input
@@ -135,12 +160,12 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onSuccess }) => {
                   required
                   value={studentCode}
                   onChange={(e) => setStudentCode(e.target.value)}
-                  placeholder="Örn: ZEYNEP veya EMRE"
-                  className="w-full px-4 py-3 rounded-2xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-sm font-semibold uppercase tracking-wider"
+                  placeholder="Örn: OGR-101"
+                  className="w-full px-4 py-3 rounded-2xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-sm font-bold uppercase tracking-wider"
                 />
               </div>
               <p className="text-[11px] text-slate-400 mt-1.5">
-                💡 Koçunuzun size verdiği tek kelimelik öğrenci kodunu giriniz.
+                💡 Koçunuzun size verdiği öğrenci kodunu giriniz.
               </p>
             </div>
 
@@ -171,7 +196,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onSuccess }) => {
                 />
               </div>
               <p className="text-[11px] text-slate-400 mt-1.5">
-                🔒 Varsayılan Koç Şifresi: <b className="text-slate-700">1234</b>
+                🔒 Sadece yetkili eğitim koçu giriş yapabilir.
               </p>
             </div>
 
@@ -185,12 +210,29 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onSuccess }) => {
           </form>
         )}
 
-        <div className="text-center pt-2 border-t border-slate-100">
+        {/* Install on phone prompt button */}
+        <div className="pt-3 border-t border-slate-100 flex flex-col items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setInstallModalOpen(true)}
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-indigo-50 hover:text-indigo-700 text-slate-700 text-xs font-bold transition active:scale-95"
+          >
+            <Smartphone className="w-4 h-4 text-indigo-600" />
+            <span>📲 Uygulamayı Telefona Ekle</span>
+          </button>
           <span className="text-[11px] text-slate-400 font-medium">
-            100% Ücretsiz • Her Yerden ve Tüm Cihazlardan Kullanılabilir
+            CoachTrack Pro • Öğrenci & Koçluk Platformu
           </span>
         </div>
       </div>
+
+      {/* Phone Install Guide Modal */}
+      <InstallPromptModal
+        isOpen={installModalOpen}
+        onClose={() => setInstallModalOpen(false)}
+        onInstallAndroid={handleInstallAndroid}
+        canInstallDirectly={!!deferredPrompt}
+      />
     </div>
   );
 };
