@@ -11,11 +11,13 @@ import {
   Calendar,
   Award,
   Plus,
-  Smartphone
+  Smartphone,
+  Camera
 } from 'lucide-react';
 import { PomodoroTimer } from '../tracker/PomodoroTimer';
 import { triggerSuccessConfetti } from '../../utils/confetti';
 import { InstallPromptModal } from '../common/InstallPromptModal';
+import { Avatar } from '../common/Avatar';
 
 interface StudentPortalProps {
   onOpenDailyLogModal: () => void;
@@ -24,6 +26,7 @@ interface StudentPortalProps {
 export const StudentPortal: React.FC<StudentPortalProps> = ({ onOpenDailyLogModal }) => {
   const {
     selectedStudent,
+    updateStudent,
     homeworks,
     toggleHomeworkStatus,
     dailyLogs,
@@ -78,6 +81,25 @@ export const StudentPortal: React.FC<StudentPortalProps> = ({ onOpenDailyLogModa
     }
   };
 
+  const handleStudentAvatarUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file || !selectedStudent) return;
+    if (file.size > 5 * 1024 * 1024) {
+      alert("Lütfen 5 MB'tan küçük bir fotoğraf seçin.");
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = (evt) => {
+      const result = evt.target?.result as string;
+      if (result) {
+        updateStudent(selectedStudent.id, { avatar: result });
+        triggerSuccessConfetti();
+      }
+    };
+    reader.readAsDataURL(file);
+    e.target.value = '';
+  };
+
   const handlePomodoroComplete = (minutes: number) => {
     addDailyLog({
       studentId: selectedStudent?.id || '',
@@ -97,11 +119,28 @@ export const StudentPortal: React.FC<StudentPortalProps> = ({ onOpenDailyLogModa
 
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 relative z-10">
           <div className="flex items-center gap-4">
-            <img
-              src={selectedStudent?.avatar}
-              alt={selectedStudent?.name}
-              className="w-16 h-16 rounded-2xl object-cover ring-2 ring-violet-400/50 shadow-md"
-            />
+            <div className="relative group shrink-0">
+              <Avatar
+                name={selectedStudent?.name || ''}
+                avatar={selectedStudent?.avatar}
+                size="xl"
+                className="ring-2 ring-violet-400/50 shadow-md"
+              />
+              <label
+                htmlFor="student-avatar-input"
+                className="absolute -bottom-1 -right-1 w-7 h-7 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full flex items-center justify-center shadow-lg cursor-pointer transition active:scale-95 border-2 border-slate-900"
+                title="Kendi fotoğrafını yükle veya değiştir"
+              >
+                <Camera className="w-3.5 h-3.5" />
+              </label>
+              <input
+                id="student-avatar-input"
+                type="file"
+                accept="image/*"
+                className="hidden"
+                onChange={handleStudentAvatarUpload}
+              />
+            </div>
             <div>
               <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-violet-500/30 text-violet-200 text-xs font-bold mb-1">
                 <Sparkles className="w-3 h-3 text-amber-300" />
@@ -114,6 +153,15 @@ export const StudentPortal: React.FC<StudentPortalProps> = ({ onOpenDailyLogModa
                 <Target className="w-3.5 h-3.5 text-amber-400" />
                 Hedefin: <b className="text-white">{selectedStudent?.targetDepartment}</b> ({selectedStudent?.targetRanking})
               </p>
+              {selectedStudent?.avatar && (
+                <button
+                  type="button"
+                  onClick={() => selectedStudent && updateStudent(selectedStudent.id, { avatar: '' })}
+                  className="text-[11px] text-violet-300 hover:text-rose-300 font-semibold underline mt-1 block transition cursor-pointer"
+                >
+                  Fotoğrafı Kaldır
+                </button>
+              )}
             </div>
           </div>
 

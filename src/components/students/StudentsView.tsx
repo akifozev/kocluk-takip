@@ -15,6 +15,7 @@ import {
   CheckCircle,
   Clock
 } from 'lucide-react';
+import { Avatar } from '../common/Avatar';
 
 interface StudentsViewProps {
   onOpenStudentModal: (student?: Student) => void;
@@ -120,10 +121,11 @@ export const StudentsView: React.FC<StudentsViewProps> = ({
                 {/* Header: Avatar, Name, Type */}
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex items-center gap-3">
-                    <img
-                      src={student.avatar}
-                      alt={student.name}
-                      className="w-14 h-14 rounded-2xl object-cover ring-2 ring-slate-100 shadow-xs"
+                    <Avatar
+                      name={student.name}
+                      avatar={student.avatar}
+                      size="lg"
+                      className="ring-2 ring-slate-100 shadow-xs"
                     />
                     <div>
                       <h3 className="font-extrabold text-slate-900 text-base leading-tight">

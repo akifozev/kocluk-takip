@@ -12,6 +12,7 @@ import {
   Flame,
   Award
 } from 'lucide-react';
+import { Avatar } from '../common/Avatar';
 
 interface SidebarProps {
   mobileMenuOpen: boolean;
@@ -77,10 +78,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ mobileMenuOpen, setMobileMenuO
               <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-indigo-500/10 rounded-full blur-xl pointer-events-none" />
               
               <div className="flex items-center gap-3">
-                <img
-                  src={selectedStudent.avatar}
-                  alt={selectedStudent.name}
-                  className="w-12 h-12 rounded-xl object-cover ring-2 ring-indigo-400/40"
+                <Avatar
+                  name={selectedStudent.name}
+                  avatar={selectedStudent.avatar}
+                  size="md"
+                  className="ring-2 ring-indigo-400/40"
                 />
                 <div className="overflow-hidden">
                   <h3 className="text-sm font-bold truncate leading-tight">{selectedStudent.name}</h3>

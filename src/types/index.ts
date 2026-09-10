@@ -6,7 +6,7 @@ export interface Student {
   id: string;
   name: string;
   code: string; // Unique student login code (e.g. ZEYNEP, EMRE, ARDA)
-  avatar: string;
+  avatar?: string;
   phone: string;
   parentName: string;
   parentPhone: string;

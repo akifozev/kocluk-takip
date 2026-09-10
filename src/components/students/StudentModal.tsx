@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Student, ExamType } from '../../types';
-import { X, UserPlus, Save } from 'lucide-react';
+import { X, UserPlus, Save, Upload, Trash2, Camera } from 'lucide-react';
+import { Avatar } from '../common/Avatar';
 
 interface StudentModalProps {
   isOpen: boolean;
@@ -8,14 +9,6 @@ interface StudentModalProps {
   onSave: (data: Omit<Student, 'id' | 'createdAt' | 'streak'>) => void;
   editingStudent?: Student | null;
 }
-
-const DEFAULT_AVATARS = [
-  'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80',
-  'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80',
-  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80',
-  'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80',
-  'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80'
-];
 
 export const StudentModal: React.FC<StudentModalProps> = ({
   isOpen,
@@ -25,7 +18,7 @@ export const StudentModal: React.FC<StudentModalProps> = ({
 }) => {
   const [name, setName] = useState('');
   const [code, setCode] = useState('');
-  const [avatar, setAvatar] = useState(DEFAULT_AVATARS[0]);
+  const [avatar, setAvatar] = useState('');
   const [phone, setPhone] = useState('');
   const [parentName, setParentName] = useState('');
   const [parentPhone, setParentPhone] = useState('');
@@ -36,11 +29,29 @@ export const StudentModal: React.FC<StudentModalProps> = ({
   const [weeklyTargetQuestions, setWeeklyTargetQuestions] = useState(1400);
   const [notes, setNotes] = useState('');
 
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleAvatarFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (file.size > 5 * 1024 * 1024) {
+      alert("Lütfen 5 MB'tan küçük bir fotoğraf seçin.");
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = (evt) => {
+      const result = evt.target?.result as string;
+      if (result) setAvatar(result);
+    };
+    reader.readAsDataURL(file);
+    e.target.value = '';
+  };
+
   useEffect(() => {
     if (editingStudent) {
       setName(editingStudent.name);
       setCode(editingStudent.code || editingStudent.name.split(' ')[0].toUpperCase());
-      setAvatar(editingStudent.avatar);
+      setAvatar(editingStudent.avatar || '');
       setPhone(editingStudent.phone);
       setParentName(editingStudent.parentName);
       setParentPhone(editingStudent.parentPhone);
@@ -53,7 +64,7 @@ export const StudentModal: React.FC<StudentModalProps> = ({
     } else {
       setName('');
       setCode('');
-      setAvatar(DEFAULT_AVATARS[Math.floor(Math.random() * DEFAULT_AVATARS.length)]);
+      setAvatar('');
       setPhone('');
       setParentName('');
       setParentPhone('');
@@ -115,6 +126,46 @@ export const StudentModal: React.FC<StudentModalProps> = ({
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4 text-sm">
+          {/* Avatar Upload / Initial Preview */}
+          <div className="flex items-center gap-4 p-3.5 bg-slate-50 rounded-2xl border border-slate-200">
+            <Avatar name={name || 'Öğrenci'} avatar={avatar} size="lg" />
+            <div className="flex-1 min-w-0">
+              <span className="block text-xs font-bold text-slate-800">Profil Fotoğrafı</span>
+              <p className="text-[11px] text-slate-500 truncate">
+                {avatar
+                  ? 'Özel fotoğraf yüklendi'
+                  : 'İsteğe bağlı. Fotoğraf yoksa baş harfler kullanılır.'}
+              </p>
+              <div className="flex items-center gap-2 mt-2">
+                <input
+                  type="file"
+                  ref={fileInputRef}
+                  onChange={handleAvatarFileChange}
+                  accept="image/*"
+                  className="hidden"
+                />
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current?.click()}
+                  className="flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-indigo-50 hover:text-indigo-700 text-slate-700 border border-slate-200 rounded-xl text-xs font-bold transition shadow-2xs"
+                >
+                  <Upload className="w-3.5 h-3.5 text-indigo-600" />
+                  <span>{avatar ? 'Fotoğrafı Değiştir' : 'Fotoğraf Yükle'}</span>
+                </button>
+                {avatar && (
+                  <button
+                    type="button"
+                    onClick={() => setAvatar('')}
+                    className="flex items-center gap-1 px-2.5 py-1.5 text-rose-600 hover:bg-rose-50 rounded-xl text-xs font-bold transition"
+                  >
+                    <Trash2 className="w-3.5 h-3.5" />
+                    <span>Kaldır</span>
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+
           {/* Name, Code & Exam Type */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div className="sm:col-span-1">
