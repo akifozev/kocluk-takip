@@ -4,7 +4,7 @@
     {
       "id": "student-1",
       "name": "Zeynep Kaya",
-      "code": "ZEYNEP",
+      "code": "OGR-101",
       "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
       "phone": "0532 111 22 33",
       "parentName": "Fatma Kaya (Anne)",
@@ -15,13 +15,13 @@
       "dailyTargetQuestions": 220,
       "weeklyTargetQuestions": 1500,
       "streak": 6,
-      "notes": "Matematik ve Fizik analizinde çok iyi. Biyoloji sistemler tekrarı gerekiyor. Sabah rutininde istikrarlı.",
+      "notes": "Matematik ve Fizik analizinde çok iyi. Biyoloji sistemler tekrarı gerekiyor.",
       "createdAt": "2026-01-10"
     },
     {
       "id": "student-2",
       "name": "Emre Demir",
-      "code": "EMRE",
+      "code": "OGR-102",
       "avatar": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80",
       "phone": "0544 333 44 55",
       "parentName": "Mustafa Demir (Baba)",
@@ -38,7 +38,7 @@
     {
       "id": "student-3",
       "name": "Arda Çelik",
-      "code": "ARDA",
+      "code": "OGR-103",
       "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
       "phone": "0555 666 77 88",
       "parentName": "Selin Çelik (Anne)",
@@ -49,8 +49,127 @@
       "dailyTargetQuestions": 150,
       "weeklyTargetQuestions": 1000,
       "streak": 8,
-      "notes": "Yeni nesil matematik sorularında yorum gücü harika. Fen bilimlerinde deney sorularına dikkat.",
+      "notes": "Yeni nesil matematik sorularında yorum gücü harika.",
       "createdAt": "2026-02-01"
+    },
+    {
+      "id": "student-4",
+      "name": "Elif Yıldız",
+      "code": "OGR-104",
+      "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80",
+      "phone": "0533 444 55 66",
+      "parentName": "Gülten Yıldız (Anne)",
+      "parentPhone": "0535 555 66 77",
+      "examType": "YKS-SAY",
+      "targetDepartment": "İTÜ Bilgisayar Mühendisliği",
+      "targetRanking": "İlk 3.000",
+      "dailyTargetQuestions": 200,
+      "weeklyTargetQuestions": 1400,
+      "streak": 5,
+      "notes": "Fizik dalgalar ve elektrik tekrar edilecek.",
+      "createdAt": "2026-02-10"
+    },
+    {
+      "id": "student-5",
+      "name": "Burak Yılmaz",
+      "code": "OGR-105",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+      "phone": "0542 555 66 77",
+      "parentName": "Hakan Yılmaz (Baba)",
+      "parentPhone": "0543 666 77 88",
+      "examType": "YKS-EA",
+      "targetDepartment": "ODTÜ İşletme",
+      "targetRanking": "İlk 2.500",
+      "dailyTargetQuestions": 180,
+      "weeklyTargetQuestions": 1250,
+      "streak": 3,
+      "notes": "Matematik fonksiyonlar ve permütasyon kombinasyon çalışacak.",
+      "createdAt": "2026-02-12"
+    },
+    {
+      "id": "student-6",
+      "name": "Ceren Şahin",
+      "code": "OGR-106",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "phone": "0536 777 88 99",
+      "parentName": "Merve Şahin (Abla)",
+      "parentPhone": "0537 888 99 00",
+      "examType": "YKS-SOZ",
+      "targetDepartment": "Marmara İletişim",
+      "targetRanking": "İlk 5.000",
+      "dailyTargetQuestions": 160,
+      "weeklyTargetQuestions": 1100,
+      "streak": 2,
+      "notes": "Coğrafya harita çalışması ve tarih inkılapları iyi durumda.",
+      "createdAt": "2026-02-15"
+    },
+    {
+      "id": "student-7",
+      "name": "Mert Aydın",
+      "code": "OGR-107",
+      "avatar": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150&auto=format&fit=crop&q=80",
+      "phone": "0551 222 33 44",
+      "parentName": "Ayhan Aydın (Baba)",
+      "parentPhone": "0553 333 44 55",
+      "examType": "LGS",
+      "targetDepartment": "Kabataş Erkek Lisesi",
+      "targetRanking": "%0.5 Dilim",
+      "dailyTargetQuestions": 140,
+      "weeklyTargetQuestions": 950,
+      "streak": 6,
+      "notes": "Fen bilimleri basınç ve asit bazlar konusunda soru pratiği artırılacak.",
+      "createdAt": "2026-02-18"
+    },
+    {
+      "id": "student-8",
+      "name": "Selin Öztürk",
+      "code": "OGR-108",
+      "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80",
+      "phone": "0538 444 55 66",
+      "parentName": "Nuray Öztürk (Anne)",
+      "parentPhone": "0539 555 66 77",
+      "examType": "YKS-SAY",
+      "targetDepartment": "Ege Tıp Fakültesi",
+      "targetRanking": "İlk 4.000",
+      "dailyTargetQuestions": 210,
+      "weeklyTargetQuestions": 1450,
+      "streak": 7,
+      "notes": "Kimya elektrokimya ve organik kimya oturmaya başladı.",
+      "createdAt": "2026-02-20"
+    },
+    {
+      "id": "student-9",
+      "name": "Kaan Koç",
+      "code": "OGR-109",
+      "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&auto=format&fit=crop&q=80",
+      "phone": "0546 666 77 88",
+      "parentName": "Ahmet Koç (Baba)",
+      "parentPhone": "0547 777 88 99",
+      "examType": "KPSS",
+      "targetDepartment": "Gelir Uzmanlığı / A Grubu",
+      "targetRanking": "90+ Puan",
+      "dailyTargetQuestions": 180,
+      "weeklyTargetQuestions": 1300,
+      "streak": 4,
+      "notes": "Genel Yetenek Matematik ve Vatandaşlık soru çözümlerinde hızlanmalı.",
+      "createdAt": "2026-02-22"
+    },
+    {
+      "id": "student-10",
+      "name": "Deniz Aksoy",
+      "code": "OGR-110",
+      "avatar": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=150&auto=format&fit=crop&q=80",
+      "phone": "0531 888 99 00",
+      "parentName": "Banu Aksoy (Anne)",
+      "parentPhone": "0534 999 00 11",
+      "examType": "YKS-SAY",
+      "targetDepartment": "Koç Üniversitesi Endüstri Müh.",
+      "targetRanking": "İlk 1.000",
+      "dailyTargetQuestions": 240,
+      "weeklyTargetQuestions": 1600,
+      "streak": 9,
+      "notes": "Tüm branşlarda istikrarlı, deneme analizleri titizlikle takip ediliyor.",
+      "createdAt": "2026-02-25"
     }
   ],
   "homeworks": [
@@ -116,61 +235,13 @@
       "date": "2026-09-09",
       "studyMinutes": 340,
       "subjects": [
-        {
-          "subject": "Matematik",
-          "correct": 72,
-          "wrong": 6,
-          "empty": 2
-        },
-        {
-          "subject": "Fizik",
-          "correct": 48,
-          "wrong": 7,
-          "empty": 5
-        },
-        {
-          "subject": "Kimya",
-          "correct": 35,
-          "wrong": 2,
-          "empty": 1
-        },
-        {
-          "subject": "Biyoloji",
-          "correct": 40,
-          "wrong": 5,
-          "empty": 0
-        }
+        { "subject": "Matematik", "correct": 72, "wrong": 6, "empty": 2 },
+        { "subject": "Fizik", "correct": 48, "wrong": 7, "empty": 5 },
+        { "subject": "Kimya", "correct": 35, "wrong": 2, "empty": 1 },
+        { "subject": "Biyoloji", "correct": 40, "wrong": 5, "empty": 0 }
       ],
       "notes": "Verimli bir gündü, türev kurallarını tamamen pekiştirdim.",
       "mood": "super"
-    },
-    {
-      "id": "log-2",
-      "studentId": "student-1",
-      "date": "2026-09-10",
-      "studyMinutes": 290,
-      "subjects": [
-        {
-          "subject": "Matematik",
-          "correct": 65,
-          "wrong": 4,
-          "empty": 1
-        },
-        {
-          "subject": "Fizik",
-          "correct": 40,
-          "wrong": 8,
-          "empty": 2
-        },
-        {
-          "subject": "Türkçe (Paragraf)",
-          "correct": 38,
-          "wrong": 2,
-          "empty": 0
-        }
-      ],
-      "notes": "Bugün paragraf hızım çok iyiydi, 40 soruyu 36 dakikada çözdüm.",
-      "mood": "good"
     }
   ],
   "exams": [
@@ -181,70 +252,14 @@
       "date": "2026-08-20",
       "type": "TYT",
       "scores": [
-        {
-          "subject": "Türkçe",
-          "correct": 34,
-          "wrong": 4,
-          "net": 33
-        },
-        {
-          "subject": "Sosyal",
-          "correct": 16,
-          "wrong": 3,
-          "net": 15.25
-        },
-        {
-          "subject": "Temel Mat",
-          "correct": 36,
-          "wrong": 2,
-          "net": 35.5
-        },
-        {
-          "subject": "Fen Bilimleri",
-          "correct": 17,
-          "wrong": 2,
-          "net": 16.5
-        }
+        { "subject": "Türkçe", "correct": 34, "wrong": 4, "net": 33.0 },
+        { "subject": "Sosyal", "correct": 16, "wrong": 3, "net": 15.25 },
+        { "subject": "Temel Mat", "correct": 36, "wrong": 2, "net": 35.5 },
+        { "subject": "Fen Bilimleri", "correct": 17, "wrong": 2, "net": 16.5 }
       ],
       "totalNet": 100.25,
       "ranking": "Türkiye 1.420 / 185.000",
-      "coachNotes": "TYT için çok sağlam bir başlangıç. Fen bilimlerinde optik sorusuna dikkat."
-    },
-    {
-      "id": "exam-2",
-      "studentId": "student-1",
-      "title": "3D Türkiye Geneli TYT 2",
-      "date": "2026-09-02",
-      "type": "TYT",
-      "scores": [
-        {
-          "subject": "Türkçe",
-          "correct": 36,
-          "wrong": 3,
-          "net": 35.25
-        },
-        {
-          "subject": "Sosyal",
-          "correct": 17,
-          "wrong": 2,
-          "net": 16.5
-        },
-        {
-          "subject": "Temel Mat",
-          "correct": 38,
-          "wrong": 1,
-          "net": 37.75
-        },
-        {
-          "subject": "Fen Bilimleri",
-          "correct": 18,
-          "wrong": 1,
-          "net": 17.75
-        }
-      ],
-      "totalNet": 107.25,
-      "ranking": "Türkiye 780 / 210.000",
-      "coachNotes": "7 netlik harika bir artış! Zaman yönetimini çok iyi uyguladın."
+      "coachNotes": "TYT için çok sağlam bir başlangıç."
     }
   ],
   "motivations": [
@@ -255,25 +270,7 @@
       "author": "Robert Collier",
       "category": "routine",
       "date": "2026-09-10"
-    },
-    {
-      "id": "quote-2",
-      "title": "Zorluklar ve Büyüme",
-      "content": "Hiçbir zafere çiçekli yollardan gidilmez. Seni zorlayan her soru, zihninde yeni bir kapı açıyor.",
-      "author": "Koçluk İlkesi",
-      "category": "grit",
-      "date": "2026-09-09"
     }
   ],
-  "meetings": [
-    {
-      "id": "meet-1",
-      "studentId": "student-1",
-      "date": "2026-09-08",
-      "durationMinutes": 45,
-      "keyPoints": "Biyoloji deneme netlerindeki dalgalanma konuşuldu. Deneme sırasındaki turlama taktiği revize edildi.",
-      "actionItems": "Haftada 2 genel TYT denemesi, her gün 30 paragraf + 20 problem rutinine devam edilecek.",
-      "nextMeetingDate": "2026-09-15"
-    }
-  ]
+  "meetings": []
 }

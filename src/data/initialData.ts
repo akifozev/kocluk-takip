@@ -4,7 +4,7 @@ export const INITIAL_STUDENTS: Student[] = [
   {
     id: 'student-1',
     name: 'Zeynep Kaya',
-    code: 'ZEYNEP',
+    code: 'OGR-101',
     avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80',
     phone: '0532 111 22 33',
     parentName: 'Fatma Kaya (Anne)',
@@ -15,13 +15,13 @@ export const INITIAL_STUDENTS: Student[] = [
     dailyTargetQuestions: 220,
     weeklyTargetQuestions: 1500,
     streak: 6,
-    notes: 'Matematik ve Fizik analizinde çok iyi. Biyoloji sistemler tekrarı gerekiyor. Sabah rutininde istikrarlı.',
+    notes: 'Matematik ve Fizik analizinde çok iyi. Biyoloji sistemler tekrarı gerekiyor.',
     createdAt: '2026-01-10'
   },
   {
     id: 'student-2',
     name: 'Emre Demir',
-    code: 'EMRE',
+    code: 'OGR-102',
     avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80',
     phone: '0544 333 44 55',
     parentName: 'Mustafa Demir (Baba)',
@@ -38,7 +38,7 @@ export const INITIAL_STUDENTS: Student[] = [
   {
     id: 'student-3',
     name: 'Arda Çelik',
-    code: 'ARDA',
+    code: 'OGR-103',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80',
     phone: '0555 666 77 88',
     parentName: 'Selin Çelik (Anne)',
@@ -49,8 +49,127 @@ export const INITIAL_STUDENTS: Student[] = [
     dailyTargetQuestions: 150,
     weeklyTargetQuestions: 1000,
     streak: 8,
-    notes: 'Yeni nesil matematik sorularında yorum gücü harika. Fen bilimlerinde deney sorularına dikkat.',
+    notes: 'Yeni nesil matematik sorularında yorum gücü harika.',
     createdAt: '2026-02-01'
+  },
+  {
+    id: 'student-4',
+    name: 'Elif Yıldız',
+    code: 'OGR-104',
+    avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80',
+    phone: '0533 444 55 66',
+    parentName: 'Gülten Yıldız (Anne)',
+    parentPhone: '0535 555 66 77',
+    examType: 'YKS-SAY',
+    targetDepartment: 'İTÜ Bilgisayar Mühendisliği',
+    targetRanking: 'İlk 3.000',
+    dailyTargetQuestions: 200,
+    weeklyTargetQuestions: 1400,
+    streak: 5,
+    notes: 'Fizik dalgalar ve elektrik tekrar edilecek.',
+    createdAt: '2026-02-10'
+  },
+  {
+    id: 'student-5',
+    name: 'Burak Yılmaz',
+    code: 'OGR-105',
+    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80',
+    phone: '0542 555 66 77',
+    parentName: 'Hakan Yılmaz (Baba)',
+    parentPhone: '0543 666 77 88',
+    examType: 'YKS-EA',
+    targetDepartment: 'ODTÜ İşletme',
+    targetRanking: 'İlk 2.500',
+    dailyTargetQuestions: 180,
+    weeklyTargetQuestions: 1250,
+    streak: 3,
+    notes: 'Matematik fonksiyonlar ve permütasyon kombinasyon çalışacak.',
+    createdAt: '2026-02-12'
+  },
+  {
+    id: 'student-6',
+    name: 'Ceren Şahin',
+    code: 'OGR-106',
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
+    phone: '0536 777 88 99',
+    parentName: 'Merve Şahin (Abla)',
+    parentPhone: '0537 888 99 00',
+    examType: 'YKS-SOZ',
+    targetDepartment: 'Marmara İletişim',
+    targetRanking: 'İlk 5.000',
+    dailyTargetQuestions: 160,
+    weeklyTargetQuestions: 1100,
+    streak: 2,
+    notes: 'Coğrafya harita çalışması ve tarih inkılapları iyi durumda.',
+    createdAt: '2026-02-15'
+  },
+  {
+    id: 'student-7',
+    name: 'Mert Aydın',
+    code: 'OGR-107',
+    avatar: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150&auto=format&fit=crop&q=80',
+    phone: '0551 222 33 44',
+    parentName: 'Ayhan Aydın (Baba)',
+    parentPhone: '0553 333 44 55',
+    examType: 'LGS',
+    targetDepartment: 'Kabataş Erkek Lisesi',
+    targetRanking: '%0.5 Dilim',
+    dailyTargetQuestions: 140,
+    weeklyTargetQuestions: 950,
+    streak: 6,
+    notes: 'Fen bilimleri basınç ve asit bazlar konusunda soru pratiği artırılacak.',
+    createdAt: '2026-02-18'
+  },
+  {
+    id: 'student-8',
+    name: 'Selin Öztürk',
+    code: 'OGR-108',
+    avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80',
+    phone: '0538 444 55 66',
+    parentName: 'Nuray Öztürk (Anne)',
+    parentPhone: '0539 555 66 77',
+    examType: 'YKS-SAY',
+    targetDepartment: 'Ege Tıp Fakültesi',
+    targetRanking: 'İlk 4.000',
+    dailyTargetQuestions: 210,
+    weeklyTargetQuestions: 1450,
+    streak: 7,
+    notes: 'Kimya elektrokimya ve organik kimya oturmaya başladı.',
+    createdAt: '2026-02-20'
+  },
+  {
+    id: 'student-9',
+    name: 'Kaan Koç',
+    code: 'OGR-109',
+    avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&auto=format&fit=crop&q=80',
+    phone: '0546 666 77 88',
+    parentName: 'Ahmet Koç (Baba)',
+    parentPhone: '0547 777 88 99',
+    examType: 'KPSS',
+    targetDepartment: 'Gelir Uzmanlığı / A Grubu',
+    targetRanking: '90+ Puan',
+    dailyTargetQuestions: 180,
+    weeklyTargetQuestions: 1300,
+    streak: 4,
+    notes: 'Genel Yetenek Matematik ve Vatandaşlık soru çözümlerinde hızlanmalı.',
+    createdAt: '2026-02-22'
+  },
+  {
+    id: 'student-10',
+    name: 'Deniz Aksoy',
+    code: 'OGR-110',
+    avatar: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=150&auto=format&fit=crop&q=80',
+    phone: '0531 888 99 00',
+    parentName: 'Banu Aksoy (Anne)',
+    parentPhone: '0534 999 00 11',
+    examType: 'YKS-SAY',
+    targetDepartment: 'Koç Üniversitesi Endüstri Müh.',
+    targetRanking: 'İlk 1.000',
+    dailyTargetQuestions: 240,
+    weeklyTargetQuestions: 1600,
+    streak: 9,
+    notes: 'Tüm branşlarda istikrarlı, deneme analizleri titizlikle takip ediliyor.',
+    createdAt: '2026-02-25'
   }
 ];
 
@@ -138,19 +257,6 @@ export const INITIAL_DAILY_LOGS: DailyLog[] = [
     ],
     notes: 'Bugün paragraf hızım çok iyiydi, 40 soruyu 36 dakikada çözdüm.',
     mood: 'good'
-  },
-  {
-    id: 'log-3',
-    studentId: 'student-2',
-    date: '2026-09-10',
-    studyMinutes: 260,
-    subjects: [
-      { subject: 'Edebiyat', correct: 75, wrong: 5, empty: 0 },
-      { subject: 'Matematik', correct: 45, wrong: 8, empty: 7 },
-      { subject: 'Tarih', correct: 30, wrong: 2, empty: 1 }
-    ],
-    notes: 'Matematikte problemlere biraz daha zaman ayırmam gerekiyor.',
-    mood: 'tired'
   }
 ];
 
@@ -186,22 +292,6 @@ export const INITIAL_EXAMS: ExamResult[] = [
     totalNet: 107.25,
     ranking: 'Türkiye 780 / 210.000',
     coachNotes: '7 netlik harika bir artış! Zaman yönetimini çok iyi uyguladın.'
-  },
-  {
-    id: 'exam-3',
-    studentId: 'student-2',
-    title: 'Limit Türkiye Geneli EA Deneme 1',
-    date: '2026-08-28',
-    type: 'TYT',
-    scores: [
-      { subject: 'Türkçe', correct: 32, wrong: 6, net: 30.5 },
-      { subject: 'Sosyal', correct: 18, wrong: 2, net: 17.5 },
-      { subject: 'Temel Mat', correct: 28, wrong: 5, net: 26.75 },
-      { subject: 'Fen Bilimleri', correct: 8, wrong: 4, net: 7.0 }
-    ],
-    totalNet: 81.75,
-    ranking: 'EA 3.100',
-    coachNotes: 'Matematik 30 net barajını aşmaya çok yakınız.'
   }
 ];
 
@@ -221,30 +311,6 @@ export const MOTIVATION_QUOTES: MotivationMessage[] = [
     author: 'Koçluk İlkesi',
     category: 'grit',
     date: '2026-09-09'
-  },
-  {
-    id: 'quote-3',
-    title: 'Stres Değil, Güç',
-    content: 'Kaygı geleceği düşünmekten doğar, güç ise şu ana odaklanmaktan gelir. Derin bir nefes al ve sıradaki soruya odaklan.',
-    author: 'Marcus Aurelius',
-    category: 'stress',
-    date: '2026-09-08'
-  },
-  {
-    id: 'quote-4',
-    title: 'Büyük Hayaller',
-    content: 'Hedefini öyle yüksek koy ki, ona ulaşma çaban bile seni olağanüstü biri yapsın.',
-    author: 'Michelangelo',
-    category: 'success',
-    date: '2026-09-07'
-  },
-  {
-    id: 'quote-5',
-    title: 'Erteleme Tuzağını Kır',
-    content: 'Mükemmel anı bekleme. Başlamak için mükemmel olmak zorunda değilsin ama mükemmel olmak için başlamak zorundasın.',
-    author: 'Zig Ziglar',
-    category: 'focus',
-    date: '2026-09-06'
   }
 ];
 

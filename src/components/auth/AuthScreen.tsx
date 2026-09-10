@@ -35,11 +35,12 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onSuccess }) => {
     if (found) {
       setSelectedStudentId(found.id);
       setViewRole('student');
+      localStorage.removeItem('coach_track_is_coach');
       localStorage.setItem('coach_track_student_code', found.code);
       triggerSuccessConfetti();
       onSuccess();
     } else {
-      setErrorMsg('Bu koda sahip bir öğrenci bulunamadı. Lütfen koçunuzun verdiği kodu girin.');
+      setErrorMsg('Bu koda sahip bir öğrenci bulunamadı. Lütfen koçunuzun verdiği kodu doğru girdiğinizden emin olun.');
     }
   };
 
@@ -50,6 +51,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onSuccess }) => {
     // Default pin 1234
     if (coachPin === '1234' || coachPin === 'admin') {
       setViewRole('coach');
+      localStorage.removeItem('coach_track_student_code');
       localStorage.setItem('coach_track_is_coach', 'true');
       triggerSuccessConfetti();
       onSuccess();
@@ -138,25 +140,8 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onSuccess }) => {
                 />
               </div>
               <p className="text-[11px] text-slate-400 mt-1.5">
-                💡 Koçunuzun size verdiği tek kelimelik kodu giriniz.
+                💡 Koçunuzun size verdiği tek kelimelik öğrenci kodunu giriniz.
               </p>
-            </div>
-
-            {/* Quick Demo Student Pills */}
-            <div className="space-y-1.5">
-              <span className="text-[11px] font-bold text-slate-400">Hızlı Test İçin Öğrenci Seç:</span>
-              <div className="flex flex-wrap gap-1.5">
-                {students.map((s) => (
-                  <button
-                    key={s.id}
-                    type="button"
-                    onClick={() => setStudentCode(s.code || s.name)}
-                    className="px-2.5 py-1 bg-slate-100 hover:bg-indigo-50 hover:text-indigo-700 text-slate-700 rounded-lg text-xs font-semibold border border-slate-200 transition"
-                  >
-                    {s.name.split(' ')[0]} ({s.code})
-                  </button>
-                ))}
-              </div>
             </div>
 
             <button
