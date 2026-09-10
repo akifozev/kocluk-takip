@@ -164,8 +164,6 @@ export const Navbar: React.FC<NavbarProps> = ({ mobileMenuOpen, setMobileMenuOpe
                 </div>
               </>
             )}
-              <span>Günün İlhamı Aktif</span>
-            </div>
 
             {/* Logout / Switch Role */}
             <button
