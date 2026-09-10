@@ -1,0 +1,279 @@
+{
+  "coachPin": "1234",
+  "students": [
+    {
+      "id": "student-1",
+      "name": "Zeynep Kaya",
+      "code": "ZEYNEP",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+      "phone": "0532 111 22 33",
+      "parentName": "Fatma Kaya (Anne)",
+      "parentPhone": "0533 222 33 44",
+      "examType": "YKS-SAY",
+      "targetDepartment": "Hacettepe Tıp Fakültesi",
+      "targetRanking": "İlk 2.000",
+      "dailyTargetQuestions": 220,
+      "weeklyTargetQuestions": 1500,
+      "streak": 6,
+      "notes": "Matematik ve Fizik analizinde çok iyi. Biyoloji sistemler tekrarı gerekiyor. Sabah rutininde istikrarlı.",
+      "createdAt": "2026-01-10"
+    },
+    {
+      "id": "student-2",
+      "name": "Emre Demir",
+      "code": "EMRE",
+      "avatar": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80",
+      "phone": "0544 333 44 55",
+      "parentName": "Mustafa Demir (Baba)",
+      "parentPhone": "0545 444 55 66",
+      "examType": "YKS-EA",
+      "targetDepartment": "Boğaziçi İktisat / Hukuk",
+      "targetRanking": "İlk 1.500",
+      "dailyTargetQuestions": 180,
+      "weeklyTargetQuestions": 1200,
+      "streak": 4,
+      "notes": "Edebiyat ezberlerinde hızlı ilerliyor. Geometride soru çözüm hızını artırmalıyız.",
+      "createdAt": "2026-01-15"
+    },
+    {
+      "id": "student-3",
+      "name": "Arda Çelik",
+      "code": "ARDA",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+      "phone": "0555 666 77 88",
+      "parentName": "Selin Çelik (Anne)",
+      "parentPhone": "0552 777 88 99",
+      "examType": "LGS",
+      "targetDepartment": "İstanbul Erkek Lisesi",
+      "targetRanking": "%0.3 Dilim",
+      "dailyTargetQuestions": 150,
+      "weeklyTargetQuestions": 1000,
+      "streak": 8,
+      "notes": "Yeni nesil matematik sorularında yorum gücü harika. Fen bilimlerinde deney sorularına dikkat.",
+      "createdAt": "2026-02-01"
+    }
+  ],
+  "homeworks": [
+    {
+      "id": "hw-1",
+      "studentId": "student-1",
+      "title": "Türev & İntegral Uygulamaları",
+      "subject": "Matematik",
+      "source": "3D Soru Bankası Test 7-12 (sf. 140-155)",
+      "targetCount": 75,
+      "completedCount": 75,
+      "dueDate": "2026-09-12",
+      "status": "completed",
+      "coachFeedback": "Mükemmel çözüm performansı! Yanlış yaptığın 3 türev sorusunu haftalık seansımızda inceleyelim.",
+      "studentNotes": "Geometrik yorum sorularında biraz takıldım ama çözümleri inceledim.",
+      "createdAt": "2026-09-08"
+    },
+    {
+      "id": "hw-2",
+      "studentId": "student-1",
+      "title": "Elektrik & Manyetizma Tarama",
+      "subject": "Fizik",
+      "source": "Aydın Yayınları Fasikül 4",
+      "targetCount": 60,
+      "completedCount": 45,
+      "dueDate": "2026-09-11",
+      "status": "incompleted",
+      "coachFeedback": "Eksik kalan 15 soruyu bu akşamki etütte bitirelim.",
+      "studentNotes": "Manyetik akı soruları biraz uzun sürdü.",
+      "createdAt": "2026-09-09"
+    },
+    {
+      "id": "hw-3",
+      "studentId": "student-2",
+      "title": "Cumhuriyet Dönemi Şiir",
+      "subject": "Edebiyat",
+      "source": "Limit Edebiyat El Kitabı + 80 Soru",
+      "targetCount": 80,
+      "completedCount": 80,
+      "dueDate": "2026-09-11",
+      "status": "reviewed",
+      "coachFeedback": "Yazar-eser eşleştirmelerin çok oturmuş. Aynen devam!",
+      "createdAt": "2026-09-07"
+    },
+    {
+      "id": "hw-4",
+      "studentId": "student-3",
+      "title": "LGS Çarpanlar ve Katlar Yeni Nesil",
+      "subject": "Matematik",
+      "source": "Mozaik Yayınları Deneme 3-4",
+      "targetCount": 40,
+      "completedCount": 0,
+      "dueDate": "2026-09-13",
+      "status": "pending",
+      "coachFeedback": "",
+      "createdAt": "2026-09-10"
+    }
+  ],
+  "dailyLogs": [
+    {
+      "id": "log-1",
+      "studentId": "student-1",
+      "date": "2026-09-09",
+      "studyMinutes": 340,
+      "subjects": [
+        {
+          "subject": "Matematik",
+          "correct": 72,
+          "wrong": 6,
+          "empty": 2
+        },
+        {
+          "subject": "Fizik",
+          "correct": 48,
+          "wrong": 7,
+          "empty": 5
+        },
+        {
+          "subject": "Kimya",
+          "correct": 35,
+          "wrong": 2,
+          "empty": 1
+        },
+        {
+          "subject": "Biyoloji",
+          "correct": 40,
+          "wrong": 5,
+          "empty": 0
+        }
+      ],
+      "notes": "Verimli bir gündü, türev kurallarını tamamen pekiştirdim.",
+      "mood": "super"
+    },
+    {
+      "id": "log-2",
+      "studentId": "student-1",
+      "date": "2026-09-10",
+      "studyMinutes": 290,
+      "subjects": [
+        {
+          "subject": "Matematik",
+          "correct": 65,
+          "wrong": 4,
+          "empty": 1
+        },
+        {
+          "subject": "Fizik",
+          "correct": 40,
+          "wrong": 8,
+          "empty": 2
+        },
+        {
+          "subject": "Türkçe (Paragraf)",
+          "correct": 38,
+          "wrong": 2,
+          "empty": 0
+        }
+      ],
+      "notes": "Bugün paragraf hızım çok iyiydi, 40 soruyu 36 dakikada çözdüm.",
+      "mood": "good"
+    }
+  ],
+  "exams": [
+    {
+      "id": "exam-1",
+      "studentId": "student-1",
+      "title": "Özdebir Genel Deneme 1 (TYT)",
+      "date": "2026-08-20",
+      "type": "TYT",
+      "scores": [
+        {
+          "subject": "Türkçe",
+          "correct": 34,
+          "wrong": 4,
+          "net": 33
+        },
+        {
+          "subject": "Sosyal",
+          "correct": 16,
+          "wrong": 3,
+          "net": 15.25
+        },
+        {
+          "subject": "Temel Mat",
+          "correct": 36,
+          "wrong": 2,
+          "net": 35.5
+        },
+        {
+          "subject": "Fen Bilimleri",
+          "correct": 17,
+          "wrong": 2,
+          "net": 16.5
+        }
+      ],
+      "totalNet": 100.25,
+      "ranking": "Türkiye 1.420 / 185.000",
+      "coachNotes": "TYT için çok sağlam bir başlangıç. Fen bilimlerinde optik sorusuna dikkat."
+    },
+    {
+      "id": "exam-2",
+      "studentId": "student-1",
+      "title": "3D Türkiye Geneli TYT 2",
+      "date": "2026-09-02",
+      "type": "TYT",
+      "scores": [
+        {
+          "subject": "Türkçe",
+          "correct": 36,
+          "wrong": 3,
+          "net": 35.25
+        },
+        {
+          "subject": "Sosyal",
+          "correct": 17,
+          "wrong": 2,
+          "net": 16.5
+        },
+        {
+          "subject": "Temel Mat",
+          "correct": 38,
+          "wrong": 1,
+          "net": 37.75
+        },
+        {
+          "subject": "Fen Bilimleri",
+          "correct": 18,
+          "wrong": 1,
+          "net": 17.75
+        }
+      ],
+      "totalNet": 107.25,
+      "ranking": "Türkiye 780 / 210.000",
+      "coachNotes": "7 netlik harika bir artış! Zaman yönetimini çok iyi uyguladın."
+    }
+  ],
+  "motivations": [
+    {
+      "id": "quote-1",
+      "title": "Disiplin ve İstikrar",
+      "content": "Başarı, her gün tekrarlanan küçük disiplinlerin toplamıdır. Bugün attığın her adım yarınki zaferini inşa ediyor.",
+      "author": "Robert Collier",
+      "category": "routine",
+      "date": "2026-09-10"
+    },
+    {
+      "id": "quote-2",
+      "title": "Zorluklar ve Büyüme",
+      "content": "Hiçbir zafere çiçekli yollardan gidilmez. Seni zorlayan her soru, zihninde yeni bir kapı açıyor.",
+      "author": "Koçluk İlkesi",
+      "category": "grit",
+      "date": "2026-09-09"
+    }
+  ],
+  "meetings": [
+    {
+      "id": "meet-1",
+      "studentId": "student-1",
+      "date": "2026-09-08",
+      "durationMinutes": 45,
+      "keyPoints": "Biyoloji deneme netlerindeki dalgalanma konuşuldu. Deneme sırasındaki turlama taktiği revize edildi.",
+      "actionItems": "Haftada 2 genel TYT denemesi, her gün 30 paragraf + 20 problem rutinine devam edilecek.",
+      "nextMeetingDate": "2026-09-15"
+    }
+  ]
+}
