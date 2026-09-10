@@ -83,96 +83,87 @@ export const Navbar: React.FC<NavbarProps> = ({ mobileMenuOpen, setMobileMenuOpe
             </div>
           </div>
 
-          {/* Center: Selected Student Dropdown */}
-          <div className="hidden md:flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 shadow-xs">
-            <span className="text-xs font-medium text-slate-500">Aktif Öğrenci:</span>
-            <select
-              value={selectedStudentId}
-              onChange={(e) => setSelectedStudentId(e.target.value)}
-              className="bg-transparent text-sm font-semibold text-slate-800 focus:outline-none cursor-pointer pr-2"
-            >
-              {students.map((st) => (
-                <option key={st.id} value={st.id}>
-                  {st.name} ({st.examType})
-                </option>
-              ))}
-            </select>
+          {/* Center: When Coach -> Dropdown, When Student -> Current Student Label */}
+          {viewRole === 'coach' ? (
+            <div className="hidden md:flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 shadow-xs">
+              <span className="text-xs font-medium text-slate-500">Aktif Danışan:</span>
+              <select
+                value={selectedStudentId}
+                onChange={(e) => setSelectedStudentId(e.target.value)}
+                className="bg-transparent text-sm font-semibold text-slate-800 focus:outline-none cursor-pointer pr-2"
+              >
+                {students.map((st) => (
+                  <option key={st.id} value={st.id}>
+                    {st.name} ({st.examType})
+                  </option>
+                ))}
+              </select>
 
-            {selectedStudent && (
-              <div className="flex items-center gap-1.5 pl-2 border-l border-slate-200">
-                <span className="inline-flex items-center gap-1 text-xs font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200/60">
-                  <Flame className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
-                  {selectedStudent.streak} Gün
-                </span>
-              </div>
-            )}
-          </div>
+              {selectedStudent && (
+                <div className="flex items-center gap-1.5 pl-2 border-l border-slate-200">
+                  <span className="inline-flex items-center gap-1 text-xs font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200/60">
+                    <Flame className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
+                    {selectedStudent.streak} Gün
+                  </span>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="hidden sm:flex items-center gap-2 bg-indigo-50/60 border border-indigo-100 rounded-xl px-3.5 py-1.5">
+              <span className="text-xs font-bold text-indigo-900">
+                {selectedStudent?.name}
+              </span>
+              <span className="text-xs text-indigo-500">•</span>
+              <span className="text-xs font-medium text-indigo-700">
+                {selectedStudent?.targetDepartment}
+              </span>
+            </div>
+          )}
 
-          {/* Right: Role Switcher & Actions */}
+          {/* Right: Actions */}
           <div className="flex items-center gap-2 sm:gap-3">
-            {/* Role Switcher Pill */}
-            <div className="flex bg-slate-100 p-1 rounded-xl border border-slate-200 text-xs font-semibold">
-              <button
-                onClick={() => setViewRole('coach')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
-                  viewRole === 'coach'
-                    ? 'bg-white text-indigo-600 shadow-xs font-bold'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                <UserCheck className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">Koç Paneli</span>
-              </button>
-              <button
-                onClick={() => setViewRole('student')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
-                  viewRole === 'student'
-                    ? 'bg-white text-violet-600 shadow-xs font-bold'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                <User className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">Öğrenci Portalı</span>
-              </button>
-            </div>
+            {/* If Coach -> Role Switcher & Backup */}
+            {viewRole === 'coach' && (
+              <>
+                <div className="hidden lg:flex items-center gap-1">
+                  <button
+                    onClick={exportData}
+                    title="Verileri Dışa Aktar (JSON Yedek)"
+                    className="p-2 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-lg transition"
+                  >
+                    <Download className="w-4 h-4" />
+                  </button>
 
-            {/* Export / Backup dropdown or buttons */}
-            <div className="hidden xl:flex items-center gap-1">
-              <button
-                onClick={exportData}
-                title="Verileri Dışa Aktar (JSON Yedek)"
-                className="p-2 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-lg transition"
-              >
-                <Download className="w-4 h-4" />
-              </button>
+                  <button
+                    onClick={() => fileInputRef.current?.click()}
+                    title="Yedek Yükle"
+                    className="p-2 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-lg transition"
+                  >
+                    <Upload className="w-4 h-4" />
+                  </button>
+                  <input
+                    type="file"
+                    ref={fileInputRef}
+                    onChange={handleFileChange}
+                    accept=".json"
+                    className="hidden"
+                  />
 
-              <button
-                onClick={() => fileInputRef.current?.click()}
-                title="Yedek Yükle"
-                className="p-2 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-lg transition"
-              >
-                <Upload className="w-4 h-4" />
-              </button>
-              <input
-                type="file"
-                ref={fileInputRef}
-                onChange={handleFileChange}
-                accept=".json"
-                className="hidden"
-              />
+                  <button
+                    onClick={resetToDefaults}
+                    title="Varsayılan Verilere Sıfırla"
+                    className="p-2 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition"
+                  >
+                    <RotateCcw className="w-4 h-4" />
+                  </button>
+                </div>
 
-              <button
-                onClick={resetToDefaults}
-                title="Varsayılan Verilere Sıfırla"
-                className="p-2 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition"
-              >
-                <RotateCcw className="w-4 h-4" />
-              </button>
-            </div>
-
-            {/* Daily Motivation Quick Badge */}
-            <div className="hidden lg:flex items-center gap-1 text-xs font-semibold text-indigo-700 bg-indigo-50 border border-indigo-200/70 px-3 py-1.5 rounded-xl">
-              <Sparkles className="w-3.5 h-3.5 text-indigo-500" />
+                <div className="hidden lg:flex items-center gap-1 text-xs font-semibold text-indigo-700 bg-indigo-50 border border-indigo-200/70 px-3 py-1.5 rounded-xl">
+                  <Sparkles className="w-3.5 h-3.5 text-indigo-500" />
+                  <span>Koç Yetkisi Aktif</span>
+                </div>
+              </>
+            )}
               <span>Günün İlhamı Aktif</span>
             </div>
 
