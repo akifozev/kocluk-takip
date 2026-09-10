@@ -67,14 +67,14 @@ export const PomodoroTimer: React.FC<PomodoroTimerProps> = ({ onSessionComplete 
 
   return (
     <div className="bg-linear-to-br from-indigo-900 to-slate-900 text-white rounded-3xl p-6 sm:p-7 shadow-lg relative overflow-hidden">
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
         <div className="flex items-center gap-2">
           <Clock className="w-5 h-5 text-indigo-400" />
           <h3 className="font-bold text-sm sm:text-base">Pomodoro Odaklanma Sayacı</h3>
         </div>
 
         {/* Mode Selector */}
-        <div className="flex bg-white/10 p-1 rounded-xl text-xs font-semibold backdrop-blur-md">
+        <div className="flex bg-white/10 p-1 rounded-xl text-xs font-semibold backdrop-blur-md self-start sm:self-auto">
           <button
             onClick={() => switchMode('focus')}
             className={`px-3 py-1 rounded-lg transition ${

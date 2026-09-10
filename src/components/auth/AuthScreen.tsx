@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { triggerSuccessConfetti } from '../../utils/confetti';
 import { InstallPromptModal } from '../common/InstallPromptModal';
+import { Logo } from '../common/Logo';
 
 interface AuthScreenProps {
   onSuccess: () => void;
@@ -93,16 +94,8 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onSuccess }) => {
 
       <div className="w-full max-w-md bg-white/95 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 relative z-10 space-y-6">
         {/* Brand Header */}
-        <div className="text-center space-y-2">
-          <div className="w-16 h-16 rounded-3xl bg-linear-to-tr from-indigo-600 to-violet-600 text-white flex items-center justify-center mx-auto shadow-lg shadow-indigo-500/30">
-            <GraduationCap className="w-9 h-9" />
-          </div>
-          <h1 className="text-2xl font-black bg-linear-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
-            CoachTrack Pro
-          </h1>
-          <p className="text-xs text-slate-500 font-medium">
-            Öğrenci Koçluğu & Günlük Hedef Takip Platformu
-          </p>
+        <div className="flex flex-col items-center text-center space-y-2 pt-2">
+          <Logo size="xl" showText={true} />
         </div>
 
         {/* Role Tab Switcher */}
@@ -160,8 +153,8 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onSuccess }) => {
                   required
                   value={studentCode}
                   onChange={(e) => setStudentCode(e.target.value)}
-                  placeholder="Örn: OGR-101"
-                  className="w-full px-4 py-3 rounded-2xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-sm font-bold uppercase tracking-wider"
+                  placeholder="Öğrenci Kodunuzu Giriniz"
+                  className="w-full px-4 py-3.5 rounded-2xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-sm font-bold uppercase tracking-wider"
                 />
               </div>
               <p className="text-[11px] text-slate-400 mt-1.5">

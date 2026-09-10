@@ -13,6 +13,7 @@ import {
   X,
   LogOut
 } from 'lucide-react';
+import { Logo } from '../common/Logo';
 
 interface NavbarProps {
   mobileMenuOpen: boolean;
@@ -68,19 +69,7 @@ export const Navbar: React.FC<NavbarProps> = ({ mobileMenuOpen, setMobileMenuOpe
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
 
-            <div className="flex items-center gap-2.5">
-              <div className="w-10 h-10 rounded-xl bg-linear-to-tr from-indigo-600 to-violet-500 flex items-center justify-center text-white shadow-md shadow-indigo-200">
-                <GraduationCap className="w-6 h-6" />
-              </div>
-              <div>
-                <span className="text-xl font-extrabold bg-linear-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
-                  CoachTrack
-                </span>
-                <span className="text-xs font-semibold uppercase tracking-wider text-violet-600 ml-1 px-1.5 py-0.5 bg-violet-50 rounded-md">
-                  Pro
-                </span>
-              </div>
-            </div>
+            <Logo size="md" />
           </div>
 
           {/* Center: When Coach -> Dropdown, When Student -> Current Student Label */}

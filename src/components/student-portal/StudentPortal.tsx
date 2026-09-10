@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useApp } from '../../context/AppContext';
 import {
   Sparkles,
@@ -10,10 +10,12 @@ import {
   Book,
   Calendar,
   Award,
-  Plus
+  Plus,
+  Smartphone
 } from 'lucide-react';
 import { PomodoroTimer } from '../tracker/PomodoroTimer';
 import { triggerSuccessConfetti } from '../../utils/confetti';
+import { InstallPromptModal } from '../common/InstallPromptModal';
 
 interface StudentPortalProps {
   onOpenDailyLogModal: () => void;
@@ -52,6 +54,28 @@ export const StudentPortal: React.FC<StudentPortalProps> = ({ onOpenDailyLogModa
     title: 'Günün İlhamı',
     content: 'Bugün yapacağın her fedakarlık yarın hedefine giden yolu aydınlatacak.',
     author: 'Koçluk İlkesi'
+  };
+
+  const [installModalOpen, setInstallModalOpen] = useState(false);
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+
+  useEffect(() => {
+    const handleBeforeInstall = (e: any) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    };
+    window.addEventListener('beforeinstallprompt', handleBeforeInstall);
+    return () => window.removeEventListener('beforeinstallprompt', handleBeforeInstall);
+  }, []);
+
+  const handleInstallAndroid = () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(() => {
+        setDeferredPrompt(null);
+        setInstallModalOpen(false);
+      });
+    }
   };
 
   const handlePomodoroComplete = (minutes: number) => {
@@ -93,16 +117,27 @@ export const StudentPortal: React.FC<StudentPortalProps> = ({ onOpenDailyLogModa
             </div>
           </div>
 
-          <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-4 py-3 rounded-2xl border border-white/10 self-start sm:self-auto">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center">
-              <Flame className="w-6 h-6 fill-amber-500" />
+          <div className="flex flex-wrap items-center gap-3 self-start sm:self-auto">
+            <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-4 py-3 rounded-2xl border border-white/10">
+              <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center">
+                <Flame className="w-6 h-6 fill-amber-500" />
+              </div>
+              <div>
+                <span className="text-[11px] font-semibold text-violet-200 block uppercase tracking-wider">
+                  Kesintisiz Seri
+                </span>
+                <span className="text-xl font-black text-white">{selectedStudent?.streak} Gün 🔥</span>
+              </div>
             </div>
-            <div>
-              <span className="text-[11px] font-semibold text-violet-200 block uppercase tracking-wider">
-                Kesintisiz Seri
-              </span>
-              <span className="text-xl font-black text-white">{selectedStudent?.streak} Gün 🔥</span>
-            </div>
+
+            <button
+              onClick={() => setInstallModalOpen(true)}
+              className="flex items-center gap-1.5 px-4 py-3 rounded-2xl bg-white/15 hover:bg-white/25 text-white text-xs font-bold transition border border-white/20 shadow-xs active:scale-95"
+              title="Uygulamayı telefonun ana ekranına ekle"
+            >
+              <Smartphone className="w-4 h-4 text-violet-300" />
+              <span>Telefona Yükle</span>
+            </button>
           </div>
         </div>
       </div>
@@ -219,9 +254,9 @@ export const StudentPortal: React.FC<StudentPortalProps> = ({ onOpenDailyLogModa
                         : 'bg-white border-slate-200 hover:border-indigo-200 shadow-2xs'
                     }`}
                   >
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="space-y-1">
-                        <div className="flex items-center gap-2">
+                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+                      <div className="space-y-1.5 flex-1">
+                        <div className="flex flex-wrap items-center gap-2">
                           <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-700">
                             {hw.subject}
                           </span>
@@ -258,10 +293,10 @@ export const StudentPortal: React.FC<StudentPortalProps> = ({ onOpenDailyLogModa
                           toggleHomeworkStatus(hw.id, newStatus);
                           if (newStatus === 'completed') triggerSuccessConfetti();
                         }}
-                        className={`flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold transition shrink-0 ${
+                        className={`flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition w-full sm:w-auto shrink-0 ${
                           isDone
                             ? 'bg-emerald-100 text-emerald-800'
-                            : 'bg-indigo-600 hover:bg-indigo-700 text-white shadow-xs'
+                            : 'bg-indigo-600 hover:bg-indigo-700 text-white shadow-xs active:scale-95'
                         }`}
                       >
                         <CheckCircle2 className="w-4 h-4" />
@@ -280,6 +315,14 @@ export const StudentPortal: React.FC<StudentPortalProps> = ({ onOpenDailyLogModa
           <PomodoroTimer onSessionComplete={handlePomodoroComplete} />
         </div>
       </div>
+
+      {/* Phone Install Guide Modal */}
+      <InstallPromptModal
+        isOpen={installModalOpen}
+        onClose={() => setInstallModalOpen(false)}
+        onInstallAndroid={handleInstallAndroid}
+        canInstallDirectly={!!deferredPrompt}
+      />
     </div>
   );
 };

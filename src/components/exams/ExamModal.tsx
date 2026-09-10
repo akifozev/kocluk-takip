@@ -101,39 +101,39 @@ export const ExamModal: React.FC<ExamModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-xs p-4 overflow-y-auto">
-      <div className="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative my-8">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-xs p-3 sm:p-4 overflow-y-auto">
+      <div className="bg-white rounded-3xl max-w-xl w-full p-4 sm:p-8 shadow-2xl border border-slate-200 relative my-4 sm:my-8">
         <button
           onClick={onClose}
-          className="absolute right-5 top-5 p-2 rounded-xl text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition"
+          className="absolute right-4 top-4 sm:right-5 sm:top-5 p-2 rounded-xl text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition"
         >
           <X className="w-5 h-5" />
         </button>
 
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
+        <div className="flex items-center gap-3 mb-5 sm:mb-6 pr-8">
+          <div className="w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
             <TrendingUp className="w-5 h-5" />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-slate-900">Deneme Sınavı Net Girişi</h2>
+            <h2 className="text-lg sm:text-xl font-bold text-slate-900">Yeni Deneme Sınavı Girişi</h2>
             <p className="text-xs text-slate-500">
-              <span className="font-bold text-indigo-600">{studentName}</span> için deneme sonuçları ve analizi
+              <span className="font-bold text-indigo-600">{studentName}</span> için deneme netleri ve analiz
             </p>
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4 text-sm">
-          {/* Title & Date */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div className="sm:col-span-2">
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 text-sm">
+          {/* Exam Title & Date */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
               <label className="block text-xs font-bold text-slate-700 mb-1">Deneme Adı / Yayın *</label>
               <input
                 type="text"
                 required
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                placeholder="Örn: 3D Türkiye Geneli TYT Denemesi 3"
-                className="w-full px-3.5 py-2 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                placeholder="Örn: 3D Türkiye Geneli TYT-1"
+                className="w-full px-3.5 py-2 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-xs sm:text-sm"
               />
             </div>
             <div>
@@ -143,7 +143,7 @@ export const ExamModal: React.FC<ExamModalProps> = ({
                 required
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
-                className="w-full px-3 py-2 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                className="w-full px-3.5 py-2 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-xs sm:text-sm"
               />
             </div>
           </div>
@@ -151,11 +151,11 @@ export const ExamModal: React.FC<ExamModalProps> = ({
           {/* Type & Ranking */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1">Sınav Formatı</label>
+              <label className="block text-xs font-bold text-slate-700 mb-1">Sınav Türü</label>
               <select
                 value={type}
                 onChange={(e) => setType(e.target.value)}
-                className="w-full px-3.5 py-2 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none bg-white"
+                className="w-full px-3.5 py-2 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none bg-white text-xs sm:text-sm"
               >
                 <option value="TYT">TYT (Temel Yeterlilik)</option>
                 <option value="AYT">AYT (Alan Yeterlilik)</option>
@@ -171,14 +171,14 @@ export const ExamModal: React.FC<ExamModalProps> = ({
                 value={ranking}
                 onChange={(e) => setRanking(e.target.value)}
                 placeholder="Örn: Türkiye 1.250 / 190.000"
-                className="w-full px-3.5 py-2 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                className="w-full px-3.5 py-2 rounded-xl border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-xs sm:text-sm"
               />
             </div>
           </div>
 
           {/* Quick Template Buttons */}
-          <div className="flex items-center gap-2 text-xs">
-            <span className="font-bold text-slate-500">Şablon Yükle:</span>
+          <div className="flex flex-wrap items-center gap-1.5 text-xs">
+            <span className="font-bold text-slate-500 mr-1">Şablon Yükle:</span>
             <button
               type="button"
               onClick={() => handleLoadTemplate('TYT')}
@@ -213,9 +213,9 @@ export const ExamModal: React.FC<ExamModalProps> = ({
           <div className="space-y-2">
             <div className="flex items-center justify-between">
               <label className="text-xs font-bold text-slate-700">Ders Bazlı Sonuçlar</label>
-              <div className="flex items-center gap-3">
-                <span className="text-xs font-extrabold text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded-lg">
-                  Toplam Net: {totalNet}
+              <div className="flex items-center gap-2 sm:gap-3">
+                <span className="text-xs font-extrabold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded-lg">
+                  Toplam: {totalNet} Net
                 </span>
                 <button
                   type="button"
@@ -228,48 +228,66 @@ export const ExamModal: React.FC<ExamModalProps> = ({
               </div>
             </div>
 
-            <div className="space-y-2 max-h-52 overflow-y-auto pr-1">
+            <div className="space-y-2.5 max-h-56 overflow-y-auto pr-1">
               {scores.map((s, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center gap-2 p-2 rounded-xl border border-slate-200 bg-slate-50/50 text-xs"
+                  className="p-3 sm:p-2 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-2 text-xs"
                 >
-                  <input
-                    type="text"
-                    value={s.subject}
-                    onChange={(e) => handleSubjectNameChange(idx, e.target.value)}
-                    className="flex-1 min-w-[100px] px-2 py-1.5 rounded-lg border border-slate-300 bg-white font-semibold"
-                  />
-
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center justify-between gap-2 sm:flex-1">
                     <input
-                      type="number"
-                      placeholder="D"
-                      value={s.correct}
-                      onChange={(e) => handleScoreChange(idx, 'correct', Number(e.target.value))}
-                      className="w-12 px-1.5 py-1.5 rounded-lg border border-emerald-300 bg-emerald-50 text-emerald-800 font-bold text-center"
-                      title="Doğru Sayısı"
+                      type="text"
+                      value={s.subject}
+                      onChange={(e) => handleSubjectNameChange(idx, e.target.value)}
+                      className="w-full px-2.5 py-1.5 rounded-lg border border-slate-300 bg-white font-semibold"
                     />
-                    <input
-                      type="number"
-                      placeholder="Y"
-                      value={s.wrong}
-                      onChange={(e) => handleScoreChange(idx, 'wrong', Number(e.target.value))}
-                      className="w-12 px-1.5 py-1.5 rounded-lg border border-rose-300 bg-rose-50 text-rose-800 font-bold text-center"
-                      title="Yanlış Sayısı"
-                    />
-                    <div
-                      className="w-14 px-1.5 py-1.5 rounded-lg border border-indigo-200 bg-indigo-50 text-indigo-800 font-extrabold text-center"
-                      title="Hesaplanan Net"
+                    <button
+                      type="button"
+                      onClick={() => handleRemoveRow(idx)}
+                      className="sm:hidden p-1 text-slate-400 hover:text-rose-600 transition shrink-0"
                     >
-                      {s.net}
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-2 sm:flex sm:items-center sm:gap-1.5">
+                    <div className="flex items-center gap-1">
+                      <span className="text-[10px] font-bold text-emerald-700 sm:hidden">D:</span>
+                      <input
+                        type="number"
+                        placeholder="D"
+                        value={s.correct}
+                        onChange={(e) => handleScoreChange(idx, 'correct', Number(e.target.value))}
+                        className="w-full sm:w-12 px-1.5 py-1.5 rounded-lg border border-emerald-300 bg-emerald-50 text-emerald-800 font-bold text-center"
+                        title="Doğru Sayısı"
+                      />
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <span className="text-[10px] font-bold text-rose-700 sm:hidden">Y:</span>
+                      <input
+                        type="number"
+                        placeholder="Y"
+                        value={s.wrong}
+                        onChange={(e) => handleScoreChange(idx, 'wrong', Number(e.target.value))}
+                        className="w-full sm:w-12 px-1.5 py-1.5 rounded-lg border border-rose-300 bg-rose-50 text-rose-800 font-bold text-center"
+                        title="Yanlış Sayısı"
+                      />
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <span className="text-[10px] font-bold text-indigo-700 sm:hidden">Net:</span>
+                      <div
+                        className="w-full sm:w-14 px-1.5 py-1.5 rounded-lg border border-indigo-200 bg-indigo-50 text-indigo-800 font-extrabold text-center"
+                        title="Hesaplanan Net"
+                      >
+                        {s.net}
+                      </div>
                     </div>
                   </div>
 
                   <button
                     type="button"
                     onClick={() => handleRemoveRow(idx)}
-                    className="p-1 text-slate-400 hover:text-rose-600 transition"
+                    className="hidden sm:block p-1 text-slate-400 hover:text-rose-600 transition shrink-0"
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>
