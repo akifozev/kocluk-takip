@@ -2,3 +2,6 @@ node_modules/
 .DS_Store
 dist/
 *.log
+milyoner_app/build/
+milyoner_app/.dart_tool/
+milyoner_app/.flutter-plugins-dependencies

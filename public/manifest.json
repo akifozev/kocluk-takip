@@ -1,11 +1,11 @@
 {
-  "name": "CoachTrack Pro - Öğrenci Koçluğu",
-  "short_name": "Koçluk Pro",
-  "description": "Öğrenci Koçluğu, Ödev ve Günlük Çalışma Takip Sistemi",
+  "name": "Milyoner Kafası - Eğlenceli Bilgi Yarışması",
+  "short_name": "Milyoner",
+  "description": "10 Milyon TL Ödüllü, Esprili Sunuculu ve Geniş Soru Havuzlu Mobil Yarışma Oyunu",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0f172a",
-  "theme_color": "#4f46e5",
+  "background_color": "#090d16",
+  "theme_color": "#090d16",
   "orientation": "portrait",
   "icons": [
     {
