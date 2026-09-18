@@ -33,7 +33,7 @@ class VictoryScreen extends StatelessWidget {
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: const Color(0xFFF59E0B).withOpacity(0.6),
+                          color: const Color(0xFFF59E0B).withValues(alpha: 0.6),
                           blurRadius: 40,
                           spreadRadius: 4,
                         ),
@@ -98,7 +98,7 @@ class VictoryScreen extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(14),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.05),
+                      color: Colors.white.withValues(alpha: 0.05),
                       borderRadius: BorderRadius.circular(18),
                       border: Border.all(color: Colors.white12),
                     ),

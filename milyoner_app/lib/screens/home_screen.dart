@@ -190,9 +190,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     decoration: BoxDecoration(
-                      color: const Color(0xFFF59E0B).withOpacity(0.12),
+                      color: const Color(0xFFF59E0B).withValues(alpha: 0.12),
                       borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: const Color(0xFFF59E0B).withOpacity(0.3)),
+                      border: Border.all(color: const Color(0xFFF59E0B).withValues(alpha: 0.3)),
                     ),
                     child: Row(
                       children: [
@@ -236,7 +236,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: [
                         BoxShadow(
-                          color: const Color(0xFFF59E0B).withOpacity(0.4),
+                          color: const Color(0xFFF59E0B).withValues(alpha: 0.4),
                           blurRadius: 30,
                           spreadRadius: 2,
                         ),
@@ -328,7 +328,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             padding: const EdgeInsets.symmetric(vertical: 12),
                             decoration: BoxDecoration(
                               color: isSelected
-                                  ? const Color(0xFFF59E0B).withOpacity(0.15)
+                                  ? const Color(0xFFF59E0B).withValues(alpha: 0.15)
                                   : const Color(0xFF1E293B),
                               borderRadius: BorderRadius.circular(16),
                               border: Border.all(
@@ -372,7 +372,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         backgroundColor: const Color(0xFFF59E0B),
                         foregroundColor: const Color(0xFF090D16),
                         elevation: 8,
-                        shadowColor: const Color(0xFFF59E0B).withOpacity(0.5),
+                        shadowColor: const Color(0xFFF59E0B).withValues(alpha: 0.5),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(18),
                         ),
